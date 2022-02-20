@@ -19,7 +19,7 @@
     }
   };
 
-  export let isLoggedIn: boolean = $authorized;
+  export let isLoggedIn: boolean = $authorized ?? Boolean(supabase.auth.session());
 
   const toggleMenu = () => {
     $isMenuOpen = !$isMenuOpen;
