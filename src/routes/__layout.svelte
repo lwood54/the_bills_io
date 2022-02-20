@@ -16,9 +16,7 @@
     --text-primary: var(--gray900); /* MAIN TEXT*/
     --blue900: #1b3cbc;
     --blue800: #115ddb;
-    --primary-active: var(--blue800);
     --blue700: #0270ee;
-    --primary: #0270ee; /* MAIN BLUE*/
     --blue600: #0082ff;
     --blue500: #0091ff;
     --blue400: #1fa2ff;
@@ -26,17 +24,32 @@
     --blue200: #8ac8ff;
     --blue100: #b9ddff;
     --blue50: #e2f2ff;
+    --primary: #0270ee; /* MAIN BLUE*/
+    --primary-active: var(--blue800);
+    --primary-hover: var(--blue200);
+    --primary-border-focus: var(--blue900);
     --light-blue50: #e1f5fe;
     --background: var(--light-blue50); /* BACKGROUND */
     --light-blue100: #b3e5fc;
     --light-blue200: #81d4fa;
     --light-blue300: #4fc3f7;
     --light-blue400: #29b6f6;
-    --light-blu500: #03a9f4;
+    --light-blue500: #03a9f4;
+    --glassBG: #cfe5fa59; /* GLASS Background */
     --light-blue600: #039be5;
     --light-blue700: #0288d1;
     --light-blue800: #0277bd;
     --light-blue900: #01579b;
+    --green50: #e8f5e9;
+    --green100: #c8e6c9;
+    --green200: #a5d6a7;
+    --green300: #81c784;
+    --green400: #66bb6a;
+    --green500: #4caf50;
+    --green600: #43a047;
+    --green700: #388e3c;
+    --green800: #2e7d32;
+    --green900: #1b5e20;
     --cyan50: #e0f7fa;
     --cyan100: #b2ebf2;
     --cyan200: #80deea;
@@ -60,15 +73,17 @@
     --teal900: #007774;
     --teal800: #009ca2;
     --teal700: #00b1ba;
-    --secondary-active: var(--teal700); /* SECONDARY ACTIVE */
     --teal600: #00c7d6;
     --teal500: #00d8e9;
-    --secondary: var(--teal500); /* SECONDARY */
     --teal400: #00e0eb;
     --teal300: #02e6ee;
     --teal200: #74eef2;
     --teal100: #aff5f6;
     --teal50: #dffbfb;
+    --secondary: var(--teal500); /* SECONDARY */
+    --secondary-active: var(--teal700); /* SECONDARY ACTIVE */
+    --secondary-hover: var(--teal200);
+    --secondary-border-focus: var(--teal900);
     --blue-alt900: #0000e6;
     --blue-alt800: #0000ea;
     --blue-alt700: #0a02ee;
@@ -148,6 +163,11 @@
     --radius-3: 3px;
     --radius-4: 4px;
     --radius-5: 5px;
+    --radius-6: 6px;
+    --radius-7: 7px;
+    --radius-8: 8px;
+    --radius-9: 9px;
+    --radius-10: 10px;
     --radius-circle: 50%;
 
     /* BUTTON */

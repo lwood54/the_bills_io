@@ -23,21 +23,42 @@
     padding: var(--spacing-m);
     cursor: pointer;
     border-radius: var(--radius-2);
+    text-align: center;
   }
 
   .primary {
-    background-color: var(--teal500);
+    background-color: var(--primary);
+    color: var(--secondary);
   }
   .primary:hover,
   .primary:focus {
-    background-color: var(--teal200);
+    background-color: var(--primary-hover);
+    color: var(--primary);
   }
   .primary:active {
-    background-color: var(--secondary-active);
+    background-color: var(--primary-active);
+    color: var(--secondary);
   }
   .primary:focus {
-    border: 2px solid var(--teal900);
+    border: 1px solid var(--primary-border-focus);
   }
+
+  .secondary {
+    background-color: var(--secondary);
+    color: var(--primary);
+  }
+  .secondary:hover,
+  .secondary:focus {
+    background-color: var(--secondary-hover);
+  }
+  .secondary:active {
+    background-color: var(--secondary-active);
+    color: var(--primary);
+  }
+  .secondary:focus {
+    border: 1px solid var(--secondary-border-focus);
+  }
+
   .negative {
     background-color: var(--red900);
   }

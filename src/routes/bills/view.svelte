@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
   import supabase from '$lib/supabase';
-  export async function load({ error, status }) {
+  export async function load({ error }) {
     const { data: bills, error: billsErrors } = await supabase.from('bills').select();
 
     return {
@@ -23,10 +23,6 @@
     loadError: any;
     billsErrors: PostgrestError;
   };
-  $: {
-    console.log('loadError >>>', errors.loadError);
-    console.log('billsErrors >>>', errors.billsErrors?.message);
-  }
 </script>
 
 <h1>Bills</h1>
