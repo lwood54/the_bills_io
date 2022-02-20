@@ -3,7 +3,7 @@
   export async function load({ error, status }) {
     const { data: bills, error: billsErrors } = await supabase.from('bills').select();
     // if (error) throw new Error(error.message);
-    console.log('error from load', error.message);
+    console.log('error from load', error?.message);
     console.log('bills error --> ', billsErrors);
     // if (billsErrors) {
     //   return {
