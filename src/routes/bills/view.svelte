@@ -3,17 +3,6 @@
   export async function load({ error, status }) {
     const { data: bills, error: billsErrors } = await supabase.from('bills').select();
     if (error) throw new Error(error.message);
-    if (billsErrors) {
-      return {
-        status: 403,
-        body: {
-          errors: {
-            loadError: error,
-            billsErrors
-          }
-        }
-      };
-    }
     return {
       props: {
         bills,
