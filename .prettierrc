@@ -1,0 +1,6 @@
+{
+  "useSpaces": true,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "printWidth": 100
+}
