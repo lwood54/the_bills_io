@@ -25,7 +25,7 @@
   };
   $: {
     console.log('loadError >>>', errors.loadError);
-    console.log('billsErrors >>>', errors.billsErrors.message);
+    console.log('billsErrors >>>', errors.billsErrors?.message);
   }
 </script>
 
