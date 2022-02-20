@@ -10,16 +10,18 @@
   import { quintOut } from 'svelte/easing';
   import CloseIcon from '../Icons/close-icon.svelte';
   import IconButton from '../Base/icon-button.svelte';
+  import { tick } from 'svelte';
+
+  export let isLoggedIn: boolean = $authorized ?? Boolean(supabase.auth.session());
 
   const logout = async () => {
     const res = await supabase.auth.signOut();
     if (!res.error) {
       $authorized = false;
+      tick();
       goto(PATH.HOME);
     }
   };
-
-  export let isLoggedIn: boolean = $authorized ?? Boolean(supabase.auth.session());
 
   const toggleMenu = () => {
     $isMenuOpen = !$isMenuOpen;
