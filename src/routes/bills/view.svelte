@@ -15,7 +15,11 @@
     // }
     return {
       props: {
-        bills
+        bills,
+        errors: {
+          loadError: error,
+          billsErrors
+        }
       }
     };
   }
@@ -23,7 +27,13 @@
 
 <script lang="ts">
   import type { Bill } from '$lib/types/bills';
-  export let bills: Bill[];
+  export let bills: Bill[] = [];
+  export let errors;
+
+  $: {
+    console.log('load errors --> ', errors.loadError);
+    console.log('billsErrors', errors.billsErrors);
+  }
 </script>
 
 <h1>Bills</h1>
