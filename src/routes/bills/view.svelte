@@ -2,7 +2,7 @@
   import supabase from '$lib/supabase';
   export async function load({ error, status }) {
     const { data: bills, error: billsErrors } = await supabase.from('bills').select();
-    if (error) throw new Error(error.message);
+
     return {
       props: {
         bills,
@@ -23,6 +23,10 @@
     loadError: any;
     billsErrors: PostgrestError;
   };
+  $: {
+    console.log('loadError >>>', errors.loadError);
+    console.log('billsErrors >>>', errors.billsErrors.message);
+  }
 </script>
 
 <h1>Bills</h1>
