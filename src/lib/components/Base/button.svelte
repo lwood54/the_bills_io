@@ -4,7 +4,7 @@
   export let onClick: () => void = undefined;
   export let bg: string = undefined;
   export let variant: BtnVariant = BTN_VARIANT.PRIMARY;
-  export let type: string;
+  export let type: string = undefined;
 </script>
 
 <button

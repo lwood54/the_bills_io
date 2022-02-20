@@ -2,17 +2,18 @@
   import supabase from '$lib/supabase';
   export async function load({ error, status }) {
     const { data: bills, error: billsErrors } = await supabase.from('bills').select();
-    // if (error) throw new Error(error.message);
-    console.log('error from load', error?.message);
-    console.log('bills error --> ', billsErrors);
-    // if (billsErrors) {
-    //   return {
-    //     status: 403,
-    //     body: {
-    //       error: billsErrors
-    //     }
-    //   };
-    // }
+    if (error) throw new Error(error.message);
+    if (billsErrors) {
+      return {
+        status: 403,
+        body: {
+          errors: {
+            loadError: error,
+            billsErrors
+          }
+        }
+      };
+    }
     return {
       props: {
         bills,
@@ -27,14 +28,12 @@
 
 <script lang="ts">
   import type { Bill } from '$lib/types/bills';
+  import type { PostgrestError } from '@supabase/supabase-js';
   export let bills: Bill[] = [];
-  export let errors;
-
-  $: {
-    console.log('load errors --> ', errors.loadError);
-    console.log('billsErrors', errors.billsErrors);
-    console.log('BILLS', bills);
-  }
+  export let errors: {
+    loadError: any;
+    billsErrors: PostgrestError;
+  };
 </script>
 
 <h1>Bills</h1>
@@ -48,6 +47,10 @@
     <li>Payment: {bill.payment}</li>
     <hr />
   {/each}
+{/if}
+{#if errors?.loadError || errors?.billsErrors}
+  <h3>{errors?.loadError?.message}</h3>
+  <h3>{errors?.billsErrors?.message}</h3>
 {/if}
 
 <style>
