@@ -33,19 +33,22 @@
   $: {
     console.log('load errors --> ', errors.loadError);
     console.log('billsErrors', errors.billsErrors);
+    console.log('BILLS', bills);
   }
 </script>
 
 <h1>Bills</h1>
 
-{#each bills as bill}
-  <li class="list-item">Name: {bill.name}</li>
-  <li>Balance: {bill.balance}</li>
-  <li>Interest: {bill.interest}</li>
-  <li>Day Due: {bill.dayDue}</li>
-  <li>Payment: {bill.payment}</li>
-  <hr />
-{/each}
+{#if bills}
+  {#each bills as bill}
+    <li class="list-item">Name: {bill.name}</li>
+    <li>Balance: {bill.balance}</li>
+    <li>Interest: {bill.interest}</li>
+    <li>Day Due: {bill.dayDue}</li>
+    <li>Payment: {bill.payment}</li>
+    <hr />
+  {/each}
+{/if}
 
 <style>
   .list-item {
