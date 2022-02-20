@@ -12,12 +12,14 @@
   import IconButton from '../Base/icon-button.svelte';
 
   const logout = async () => {
-    await supabase.auth.signOut();
-    $authorized = false;
-    goto(PATH.HOME);
+    const res = await supabase.auth.signOut();
+    if (!res.error) {
+      $authorized = false;
+      goto(PATH.HOME);
+    }
   };
 
-  export let isLoggedIn: boolean;
+  export let isLoggedIn: boolean = $authorized;
 
   const toggleMenu = () => {
     $isMenuOpen = !$isMenuOpen;
