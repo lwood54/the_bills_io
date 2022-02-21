@@ -12,3 +12,10 @@ export const INPUT_VARIANT = {
   NEGATIVE: 'negative'
 } as const;
 export type InputVariant = typeof INPUT_VARIANT[keyof typeof INPUT_VARIANT];
+
+export const POSITION = {
+  CENTER: 'center',
+  END: 'end',
+  START: 'start'
+} as const;
+export type Position = typeof POSITION[keyof typeof POSITION];

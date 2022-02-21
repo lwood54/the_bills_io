@@ -2,9 +2,9 @@
   import FormInput from '$lib/components/Base/form-input.svelte';
   import { authorized } from '$lib/store/auth';
   import Button from '$lib/components/Base/button.svelte';
-
   import supabase from '$lib/supabase';
   import type { ApiError } from '@supabase/supabase-js';
+  import FullPage from '$lib/components/Base/full-page.svelte';
   let formError: ApiError | null;
   let email = '';
   let password = '';
@@ -25,7 +25,7 @@
   };
 </script>
 
-<div class="login-page">
+<FullPage>
   {#if isLoggedIn}
     <h1>Congrats, you're logged in!</h1>
   {:else}
@@ -47,7 +47,7 @@
       {/if}
     </div>
   {/if}
-</div>
+</FullPage>
 
 <style>
   .image-container {
@@ -57,20 +57,10 @@
     width: 100%;
   }
 
-  .login-page {
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: auto;
-    background: linear-gradient(to left top, var(--teal600), var(--blue600), var(--teal600));
-    background-attachment: fixed;
-  }
-
   .login-form-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
     justify-content: center;
     align-items: center;
     padding: var(--spacing-m);

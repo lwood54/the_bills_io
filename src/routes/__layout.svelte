@@ -24,7 +24,7 @@
     --blue200: #8ac8ff;
     --blue100: #b9ddff;
     --blue50: #e2f2ff;
-    --primary: #0270ee; /* MAIN BLUE*/
+    --primary: var(--blue700); /* MAIN BLUE*/
     --primary-active: var(--blue800);
     --primary-hover: var(--blue200);
     --primary-border-focus: var(--blue900);

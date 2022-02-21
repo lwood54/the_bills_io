@@ -6,11 +6,9 @@
   import supabase from '$lib/supabase';
   import Button from '../Base/button.svelte';
   import MenuIcon from '../Icons/menu-icon.svelte';
-  import { fly } from 'svelte/transition';
-  import { quintOut } from 'svelte/easing';
-  import CloseIcon from '../Icons/close-icon.svelte';
   import IconButton from '../Base/icon-button.svelte';
   import { tick } from 'svelte';
+  import Menu from './menu.svelte';
 
   export let isLoggedIn: boolean = $authorized ?? Boolean(supabase.auth.session());
 
@@ -28,9 +26,6 @@
   };
 </script>
 
-{#if $isMenuOpen}
-  <div class="menu-overlay" on:click={toggleMenu} />
-{/if}
 <div class="nav-container">
   <IconButton onClick={toggleMenu}>
     <MenuIcon />
@@ -43,49 +38,15 @@
     {/if}
   </div>
 </div>
-{#if $isMenuOpen}
-  <div transition:fly={{ delay: 100, duration: 200, easing: quintOut, x: -100 }} class="menu">
-    <div class="menu-header">
-      <IconButton variant="inverted" onClick={toggleMenu}>
-        <CloseIcon />
-      </IconButton>
-    </div>
-    <div class="menu-content">stuff</div>
-    <div class="menu-footer" />
-  </div>
-{/if}
+<Menu />
+<div class="filler" />
 
 <style>
+  .filler {
+    padding-top: var(--h-s);
+  }
   .auth-action {
     margin: var(--spacing-s);
-  }
-
-  .menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: var(--w-xs);
-    height: 100vh;
-    background-color: var(--background);
-    border: 1px solid var(--teal900);
-    z-index: 10;
-  }
-  .menu-header {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: var(--h-xs);
-    display: flex;
-    justify-content: flex-end;
-  }
-  .menu-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.411);
-    z-index: 9;
   }
 
   .nav-container {
